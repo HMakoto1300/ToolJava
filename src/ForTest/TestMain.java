@@ -1,8 +1,8 @@
 package ForTest;
 
 import MyTool.Clip;
-import MyTool.Input;
 import MyTool.StringCompress;
+import Temp.Input;
 
 public class TestMain {
 	public static void main(String[] args) {
