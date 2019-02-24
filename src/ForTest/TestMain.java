@@ -9,9 +9,9 @@ public class TestMain {
 		String encoded = StringCompress.compress(Clip.getClipboardString());
 		System.out.println(encoded);
 		System.out.println(StringCompress.decompress(encoded));
-		Input.input();
-		System.out.printf(Input.input());
 	
+		String koko = Input.input();
+		System.out.printf(koko);
 	}
 	
 }
