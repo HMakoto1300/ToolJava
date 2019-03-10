@@ -1,6 +1,7 @@
 package ForTest;
 
 import MyTool.Clip;
+import MyTool.Hiduke;
 import MyTool.StringCompress;
 import Temp.Input;
 
@@ -10,8 +11,18 @@ public class TestMain {
 		System.out.println(encoded);
 		System.out.println(StringCompress.decompress(encoded));
 	
-		String koko = Input.input();
-		System.out.printf(koko);
-	}
+		
+		Hiduke f=new Hiduke("20190101");
+		System.out.printf("%s\r\n",f.getHiduke());
+		f.addBuDay(6);
+		Hiduke g=new Hiduke(f.getHiduke());
+
+		System.out.printf("%s\r\n",g.getHiduke());
+
+		
+		
+		
+		
 	
+	}
 }
