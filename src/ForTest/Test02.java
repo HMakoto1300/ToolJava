@@ -16,29 +16,36 @@ public class Test02 {
 		MyUtil u = new MyUtil();
 		Hiduke dd = new Hiduke("20190101");
 		for(int i= 0;i<10;i++) {
-			dd.addBuDay(i);
+			dd.addDay(i);
 			R k = new R("tt",i,dd.toString());
 			t.insert(k);
 		}
-		
-		
 		R k1= new R("th",3,"20190101");
 		t.insert(k1);
-		k1.i=4;
-		t.insert(k1);
-		k1.i=5;
-		t.select("a", "tt").forEach(e -> u.log(e.toString()));
-		List<Record> aaa = t.select("a", "tt");
-		t.delete(aaa);
+		
 		u.log("----------");
-		t.select("a", "th").forEach(e -> u.log(e.toString()));
+//		t.select("a", "tt").forEach(e -> u.log(e.toString()));
+		u.log("----------");
+
+		t.select().forEach(e -> u.log(e.toString()));
+		u.log("----------");
+
+//		t.lessThan("i", 5).forEach(e -> u.log(e.toString()));
+		t.selectLargerThan("d", new Hiduke("20190202")).forEach(e -> u.log(e.toString()));
+		u.log("----------");
+
+		t.selectLargerThan("i", 3).forEach(e -> u.log(e.toString()));
+		
+		
+		
+
 		
 		//t.get(t.search("a", "tt")).forEach(e -> u.log(e.toString()));
 		
-		Map<String,String> p = new HashMap<String,String>();
-		p.put("1","a");
-		p.put("2","b");
-		u.log(p.get("2").toString());
+//		Map<String,String> p = new HashMap<String,String>();
+//		p.put("1","a");
+//		p.put("2","b");
+//		u.log(p.get("2").toString());
 		
 		/*
 		 * //R(String a,Integer i,Hiduke d) R r_1 = new R("test",4,"20200101"); R r_2 =

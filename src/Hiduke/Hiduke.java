@@ -47,7 +47,7 @@ public class Hiduke {
 	}
 
 	public String toString() {
-		return new SimpleDateFormat("YYYYMMDD").format(this.hiduke);
+		return new SimpleDateFormat("yyyyMMdd").format(this.hiduke);
 		//return this.hiduke.toString();
 	}
 
@@ -71,7 +71,11 @@ public class Hiduke {
 		}
 	}
 
-
+	public int compareTo(Hiduke anotherHiduke) {
+		return this.hiduke.compareTo(anotherHiduke.getHiduke());
+	}
+		
+		
 
 	static private Date truncateTime(Date d) {
 		Instant instant = d.toInstant();

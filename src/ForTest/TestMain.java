@@ -7,14 +7,25 @@ import Temp.Input;
 
 public class TestMain {
 	public static void main(String[] args) {
-		for(int i=0;i<100;i++) {
-			for(int j=0;j<100;j++) {
-				System.out.printf("ƒqƒiƒ^");
-			}
-			System.out.printf("\r\n");
-				
+Hiduke h  = new Hiduke("20190101");			
+		for(int i = 0 ; i < 100 ; i++) {
+			h.addBuDay(i);
+			System.out.printf(h.toString()+"\r\n");
+			
 		}
-		System.out.printf("‚¨‚í‚è");
+		
+		
+//			Double d = 0.1;
+//			d.getClass().get
+		
+		//		for(int i=0;i<100;i++) {
+//			for(int j=0;j<100;j++) {
+//				System.out.printf("ƒqƒiƒ^");
+//			}
+//			System.out.printf("\r\n");
+//				
+//		}
+//		System.out.printf("‚¨‚í‚è");
 		
 		
 //		Rrd r = new Rrd();

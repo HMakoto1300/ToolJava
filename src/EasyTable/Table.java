@@ -19,9 +19,9 @@ public class Table extends HashMap<Integer,Record>{
 			//super.put(this.key, r);
 			//this.key += 1;
 			super.put(r.hashCode(), r);
-
 		}
 	}
+
 	
 	public List<Record> get(List<Integer> keys){
 		List<Record> rs = new ArrayList<Record>();
@@ -38,6 +38,12 @@ public class Table extends HashMap<Integer,Record>{
 		}
 	}
 
+	public void delete(Record ...rcd){
+		for(Record r : rcd) {
+			this.remove(r.hashCode());
+		}
+	}	
+	
 	
 	public List<Record> select(String col,Object value){
 		List<Record> rcds = new ArrayList<Record>();
@@ -46,7 +52,20 @@ public class Table extends HashMap<Integer,Record>{
 		return rcds;
 	}
 
-
+	public List<Record> selectLessThan(String col,Object value){
+		List<Record> rcds = new ArrayList<Record>();
+		this.entrySet().stream()
+		.filter(e -> e.getValue().compareTo(col, value)==-1)
+		.forEach(e -> rcds.add(e.getValue()));
+		return rcds;
+	}
+	public List<Record> selectLargerThan(String col,Object value){
+		List<Record> rcds = new ArrayList<Record>();
+		this.entrySet().stream()
+		.filter(e -> e.getValue().compareTo(col, value)==1)
+		.forEach(e -> rcds.add(e.getValue()));
+		return rcds;
+	}
 	
 	public List<Record> select(){
 		List<Record> rcds = new ArrayList<Record>();
