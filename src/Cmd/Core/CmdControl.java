@@ -1,4 +1,4 @@
-package Todo.Cmd;
+package Cmd.Core;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,18 +14,15 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import Todo.Individual.komando;
 
 public class CmdControl {
 	private static final String exitCommand = "exit";
-	private CmdLine cmd;
-
-	public CmdControl(String prompt) throws IOException {
-		komando komando = new komando();
-		this.cmd = new CmdLine(komando);
-
+	private static final String prompt = ">";
+	
+	public CmdControl(CmdExecute e) throws IOException {
+		CmdStream cmd = new CmdStream();
+		
 		while (true) {
-			try {
 				System.out.print(prompt);
 				String str = null;
 				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -33,13 +30,12 @@ public class CmdControl {
 				if (str.equals(exitCommand)) {
 					break;
 				}
-				if (this.cmd.set(str)) {
-					this.cmd.exe();
+				
+				if (cmd.input(str)) {
+					e.exe(cmd);
+					cmd.show();
+					
 				}
-			} catch (CommandErr e) {
-
-			}
 		}
-
 	}
-}
+}			

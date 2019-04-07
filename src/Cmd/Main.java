@@ -1,13 +1,15 @@
-package Todo;
+package Cmd;
 
 import java.io.IOException;
 
-import Todo.Cmd.CmdControl;
+import Cmd.Core.CmdControl;
+
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		CmdControl cmd = new CmdControl(">");
+		Command command = new Command();
+		CmdControl cmd = new CmdControl(command);
 		
 	}
 
