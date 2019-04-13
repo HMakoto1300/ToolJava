@@ -1,4 +1,4 @@
-package Cmd.Core;
+package Cmd.Core.Util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 
+import Cmd.Core.CmdStream;
+
 public class CmdHistory {
 	static private int numberOfhistory=10;
 	private static final List<String> nonCountCommandList = Arrays.asList("d", "l");
@@ -17,6 +19,7 @@ public class CmdHistory {
 	public CmdHistory() {
 		
 	}
+	
 	public List<String> set(CmdStream cmd) {
 		int i = cmd.getIndex();
 		Integer j = 0;

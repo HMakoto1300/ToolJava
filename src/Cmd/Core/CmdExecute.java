@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 import Cmd.Core.CmdExecute.CmdErr;
+import Cmd.Core.Util.CmdHistory;
 
 
 abstract public class CmdExecute {
