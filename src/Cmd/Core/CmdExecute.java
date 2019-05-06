@@ -26,15 +26,16 @@ abstract public class CmdExecute {
 			n = this.getClass().getMethod(cmd.get().command ,cmd.getClass());
 			Object r = n.invoke(this, dd);
 		} catch (IllegalAccessException e) {
-			cmd.get().out.add("UnKnow err occured.");
+			cmd.get().out.add("UnKnow err occured.1");
 		} catch (IllegalArgumentException e) {
-			cmd.get().out.add("UnKnow err occured.");
+			cmd.get().out.add("UnKnow err occured.2");
 		} catch (InvocationTargetException e) {
-			cmd.get().out.add("UnKnow err occured.");
+			cmd.get().out.add("UnKnow err occured.3");
+			//e.printStackTrace();
 		} catch (NoSuchMethodException e) {
 			cmd.get().out.add("No such method.");
 		} catch (SecurityException e) {
-			cmd.get().out.add("UnKnow err occured.");
+			cmd.get().out.add("UnKnow err occured.4");
 		}
 	}
 

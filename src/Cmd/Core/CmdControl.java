@@ -34,8 +34,8 @@ public class CmdControl {
 				if (cmd.input(str)) {
 					e.exe(cmd);
 					cmd.show();
-					
 				}
+					
 		}
 	}
 }			
