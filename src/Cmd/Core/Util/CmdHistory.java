@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 
-import Cmd.Core.CmdStream;
+import Cmd.Core.Cmd;
 
 public class CmdHistory {
 	static private int numberOfhistory=10;
@@ -20,7 +20,7 @@ public class CmdHistory {
 		
 	}
 	
-	public List<String> set(CmdStream cmd) {
+	public List<String> set(Cmd cmd) {
 		int i = cmd.getIndex();
 		Integer j = 0;
 		this.his = new HashMap<Integer,String>();

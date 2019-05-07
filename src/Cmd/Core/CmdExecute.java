@@ -18,7 +18,7 @@ abstract public class CmdExecute {
 	}
 	
 		
-	public void exe(CmdStream cmd) {
+	public void exe(Cmd cmd) {
 		Object[] dd = { cmd };
 		Method n = null;
 		//System.out.print(cmd.get().command);
@@ -40,7 +40,7 @@ abstract public class CmdExecute {
 	}
 
 
-	public void cmd(CmdStream cmd) {
+	public void cmd(Cmd cmd) {
 		Arrays.stream(this.getClass().getMethods())
 		.filter(m -> m.toString().contains("CmdStream"))
 		.forEach(m -> cmd.get().out.add(m.getName()));
@@ -60,7 +60,7 @@ abstract public class CmdExecute {
 
 	
 	private CmdHistory his;
-	public void l(CmdStream cmd){
+	public void l(Cmd cmd){
 		if(Objects.isNull(this.his)) {
 			this.his = new CmdHistory();
 		}
@@ -69,7 +69,7 @@ abstract public class CmdExecute {
 			cmd.get().out.add(str);
 		}
 	}
-	public void d(CmdStream cmd){		
+	public void d(Cmd cmd){		
 		
 		if(Objects.isNull(this.his)) {
 			this.his = new CmdHistory();

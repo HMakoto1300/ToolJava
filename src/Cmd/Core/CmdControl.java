@@ -20,7 +20,7 @@ public class CmdControl {
 	private static final String prompt = ">";
 	
 	public CmdControl(CmdExecute e) throws IOException {
-		CmdStream cmd = new CmdStream();
+		Cmd cmd = new Cmd();
 		
 		while (true) {
 				System.out.print(prompt);

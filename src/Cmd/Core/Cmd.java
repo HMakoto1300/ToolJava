@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class CmdStream {
+public class Cmd {
 	private static final String regex = "\"[^\"]+\"|[^ ]+";
 	private static final Pattern p = Pattern.compile(regex);
 
@@ -60,7 +60,7 @@ public class CmdStream {
 
 	private CmdHis cmdhis;
 
-	public CmdStream() {
+	public Cmd() {
 		this.cmdhis = new CmdHis();
 	}
 

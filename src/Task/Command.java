@@ -2,7 +2,7 @@ package Task;
 
 import Cmd.Core.CmdControl;
 import Cmd.Core.CmdExecute;
-import Cmd.Core.CmdStream;
+import Cmd.Core.Cmd;
 
 public class Command extends CmdExecute{
 	private TaskControl tc;
@@ -12,33 +12,33 @@ public class Command extends CmdExecute{
 	}
 	
 
-	public void test(CmdStream cmd) {
+	public void test(Cmd cmd) {
 		for (String ss : cmd.get().args) {
 			cmd.get().out.add(ss); 
 		}
 	}
 	
-	public void a(CmdStream cmd) {
+	public void a(Cmd cmd) {
 		// System.out.print(cmd.get().args[0]);
 		this.tc.a(cmd.get().args);
 	}
 	
-	public void showall(CmdStream cmd) {
+	public void showall(Cmd cmd) {
 		this.tc.showall().stream().forEach(e->cmd.get().out.add(e));
 	}
 	
-	public void tree(CmdStream cmd) {
+	public void tree(Cmd cmd) {
 		this.tc.tree().stream().forEach(e->cmd.get().out.add(e));
 	}
-	public void ls(CmdStream cmd) {
+	public void ls(Cmd cmd) {
 		this.tc.ls().stream().forEach(e->cmd.get().out.add(e));
 	}
 		
-	public void pwd(CmdStream cmd) {
+	public void pwd(Cmd cmd) {
 		this.tc.pwd().stream().forEach(e->cmd.get().out.add(e));
 	}	
 	
-	public void cd(CmdStream cmd) {
+	public void cd(Cmd cmd) {
 		if(cmd.get().args[0].equals("..")) {
 			this.tc.paremtd();
 		}else {
