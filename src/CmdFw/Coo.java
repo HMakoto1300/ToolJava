@@ -27,7 +27,7 @@ public class Coo extends CmdFw{
 		
 		
 		Node<String> child = new Node<String>(cmd.getArgs()[0]);
-		this.current.add(child);
+		this.current.have(child);
 //		this.current.getChildren().stream().forEach(e -> cmd.setOut(e.toString()));
 	}
 	public void cd(CmdStream cmd) {

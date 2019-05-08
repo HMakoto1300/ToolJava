@@ -63,7 +63,7 @@ public class Node<O> {
 	/*
 	 * To add child.
 	 */
-	public void add(Node<O> child) throws CannotOperateNode {
+	public void have(Node<O> child) throws CannotOperateNode {
 		/*
 		 * To check if the child node added is in ancient list.
 		 */
