@@ -1,4 +1,4 @@
-package SimpleParse;
+package Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 import MyTool.Clip;
 import MyTool.P;
+import Node.Node;
 
 public class SimpleParse {
 	public static void main(String args[]) {

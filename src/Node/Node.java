@@ -1,4 +1,4 @@
-package SimpleParse;
+package Node;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,20 +9,18 @@ public class Node<O> {
 	private Node<O> parent;
 	private List<Node<O>> children;
 
-
-	
 	public Node(O data) {
 		this.data = data;
 		this.parent = null;
 		this.children = new ArrayList<Node<O>>();
 	}
-	
-	static public <O> List<O> toData(List<Node<O>> nodes){
+
+	static public <O> List<O> toData(List<Node<O>> nodes) {
 		List<O> list = new ArrayList<O>();
 		nodes.stream().forEach(e -> list.add(e.getData()));
 		return list;
 	}
-	
+
 	/*
 	 * Return a data .
 	 */
@@ -41,7 +39,7 @@ public class Node<O> {
 		this.parent = parent;
 	}
 
-	public void leaveFromParent() {
+	public void leave() {
 		if (!Objects.isNull(this.parent)) {
 			this.parent.children.remove(this);
 			this.parent = null;
@@ -61,7 +59,7 @@ public class Node<O> {
 	}
 
 	/*
-	 * To add child.
+	 * To have child.
 	 */
 	public void have(Node<O> child) throws CannotOperateNode {
 		/*
@@ -71,7 +69,7 @@ public class Node<O> {
 			throw new CannotOperateNode("this child added exist in ancient list .");
 		}
 		/*
-		 * To check if the child node has already the some parent .
+		 * To check if the child node has already been belonged to some parent .
 		 */
 		if (!Objects.isNull(child.getParent())) {
 			throw new CannotOperateNode("this node has already the parent .");
@@ -83,6 +81,12 @@ public class Node<O> {
 
 	public Node<O> getParent() {
 		return this.parent;
+	}
+
+	public int getLayer() {
+		int l;
+		l = this.getAcientList().size() - 1;
+		return l;
 	}
 
 	/*
@@ -100,12 +104,25 @@ public class Node<O> {
 		}
 	}
 
+	/*
+	 * Return the list progeny including this self as List .
+	 */
+	public List<Node<O>> getProgeny() {
+		List<Node<O>> progenyList = new ArrayList<Node<O>>();
+		progenyList.add(this);
+		this.children.stream().forEach(e -> {
+			if (!e.checkEnd()) {
+				progenyList.addAll(e.getProgeny());
+			} else {
+				progenyList.add(e);
+			}
+		});
+		return progenyList;
+	}
+
 	public List<Node<O>> getChildren() {
 		return this.children;
 	}
-	
-
-
 
 	/*
 	 * This is representation of Node by implementation to toString .
@@ -117,16 +134,14 @@ public class Node<O> {
 	/*
 	 * This is representation of Nodes as tree construction .
 	 */
-	static final String tab = "\t";
-	public List<String> treeShow() {
+	static final String tab = " ";
+	public List<String> getTreeString() {
 		List<String> tree = new ArrayList<String>();
-		this.children.stream().forEach(e -> {
-			tree.add(e.toString());
-			if (!e.checkEnd()) {
-				e.treeShow().stream().forEach(f -> tree.add(tab + f));
-			}
+		int base = this.getLayer();
+		this.getProgeny().stream().forEach(e -> {
+			int n = e.getLayer() - base;
+			tree.add(tab.repeat(n) + e);
 		});
 		return tree;
 	}
-
 }

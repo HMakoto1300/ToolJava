@@ -3,10 +3,8 @@ package CmdFw;
 import java.io.IOException;
 import java.util.Objects;
 
-import Cmd.Core.CmdControl;
-import SimpleParse.CannotOperateNode;
-import SimpleParse.Node;
-import Task.Command;
+import Node.CannotOperateNode;
+import Node.Node;
 
 public class Coo extends CmdFw{
 	private Node<String> root;
@@ -52,16 +50,6 @@ public class Coo extends CmdFw{
 		cmd.setOut(strbuf.toString());
 	}
 	public void tree(CmdStream cmd) {
-		cmd.setOut(this.current.treeShow());
+		cmd.setOut(this.current.getTreeString());
 	}
-			
-		
-
-	
-	
-	
-	
-	
-	
-
 }

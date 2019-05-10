@@ -1,4 +1,4 @@
-package SimpleParse;
+package Node;
 
 public class CannotOperateNode extends Exception {
 	public CannotOperateNode(String str) {
